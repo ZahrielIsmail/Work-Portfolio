@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Captain — Data Science Portfolio</title>
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#4fd1c5; --muted:#9aa4b2;
+      --maxw:900px; font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    body{margin:0; background:linear-gradient(180deg,#071028 0%,var(--bg) 100%); color:#eef2f7; display:flex; justify-content:center; padding:48px 16px;}
+    .wrap{width:100%; max-width:var(--maxw);}
+    header{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:28px;}
+    h1{margin:0; font-size:28px; letter-spacing:-0.02em;}
+    .subtitle{color:var(--muted); margin-top:6px; font-size:14px;}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.04); padding:20px; border-radius:12px;}
+    .hero{display:grid; grid-template-columns:1fr auto; gap:12px; align-items:center;}
+    .cta{display:inline-block; background:var(--accent); color:#062027; padding:10px 14px; border-radius:8px; text-decoration:none; font-weight:600;}
+    .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin-top:16px;}
+    .proj{padding:12px; border-radius:10px; background:rgba(255,255,255,0.01); border:1px solid rgba(255,255,255,0.03);}
+    footer{margin-top:18px; color:var(--muted); font-size:13px;}
+    a{color:var(--accent);}
+    @media (max-width:560px){ .hero{grid-template-columns:1fr} header{flex-direction:column; align-items:flex-start} h1{font-size:22px} }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Captain — Data Scientist</h1>
+        <div class="subtitle">Masters in Data Science • ex-ETL Developer • Portfolio test site</div>
+      </div>
+      <div class="card hero" style="max-width:360px;">
+        <div>
+          <strong>Site status</strong>
+          <div style="color:var(--muted); margin-top:6px;">This is a minimal page to verify GitHub Pages deployment.</div>
+        </div>
+        <div style="text-align:right">
+          <a class="cta" href="#projects">Verify</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="card">
+      <section id="projects">
+        <h2 style="margin:0 0 8px 0;">Featured projects</h2>
+        <div class="grid">
+          <div class="proj">
+            <strong>Pipeline to Insight</strong>
+            <div style="color:var(--muted); margin-top:6px; font-size:13px;">ETL → clean warehouse → dashboard</div>
+            <div style="margin-top:10px;"><a href="#">Repo</a> · <a href="#">Demo</a></div>
+          </div>
+
+          <div class="proj">
+            <strong>Predictive model</strong>
+            <div style="color:var(--muted); margin-top:6px; font-size:13px;">End‑to‑end model with evaluation and deployment</div>
+            <div style="margin-top:10px;"><a href="#">Repo</a> · <a href="#">Notebook</a></div>
+          </div>
+
+          <div class="proj">
+            <strong>Exploratory dashboard</strong>
+            <div style="color:var(--muted); margin-top:6px; font-size:13px;">Interactive charts for business decisions</div>
+            <div style="margin-top:10px;"><a href="#">Repo</a> · <a href="#">Demo</a></div>
+          </div>
+        </div>
+      </section>
+
+      <section style="margin-top:18px;">
+        <h3 style="margin:0 0 8px 0;">Contact</h3>
+        <div style="color:var(--muted); font-size:13px;">Email: <a href="mailto:you@example.com">you@example.com</a> · GitHub: <a href="https://github.com/yourusername">yourusername</a></div>
+      </section>
+
+      <footer>
+        If you can see this page at https://yourusername.github.io then GitHub Pages is working.
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
