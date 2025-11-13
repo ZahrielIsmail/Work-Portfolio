@@ -4,77 +4,290 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Captain — Data Science Portfolio</title>
-  <style>
-    :root{
-      --bg:#0f1724; --card:#0b1220; --accent:#4fd1c5; --muted:#9aa4b2;
-      --maxw:900px; font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    body{margin:0; background:linear-gradient(180deg,#071028 0%,var(--bg) 100%); color:#eef2f7; display:flex; justify-content:center; padding:48px 16px;}
-    .wrap{width:100%; max-width:var(--maxw);}
-    header{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:28px;}
-    h1{margin:0; font-size:28px; letter-spacing:-0.02em;}
-    .subtitle{color:var(--muted); margin-top:6px; font-size:14px;}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.04); padding:20px; border-radius:12px;}
-    .hero{display:grid; grid-template-columns:1fr auto; gap:12px; align-items:center;}
-    .cta{display:inline-block; background:var(--accent); color:#062027; padding:10px 14px; border-radius:8px; text-decoration:none; font-weight:600;}
-    .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin-top:16px;}
-    .proj{padding:12px; border-radius:10px; background:rgba(255,255,255,0.01); border:1px solid rgba(255,255,255,0.03);}
-    footer{margin-top:18px; color:var(--muted); font-size:13px;}
-    a{color:var(--accent);}
-    @media (max-width:560px){ .hero{grid-template-columns:1fr} header{flex-direction:column; align-items:flex-start} h1{font-size:22px} }
-  </style>
+	<style>
+	/* =========================
+	Variables / Base
+	========================= */
+	:root {
+	/* colors */
+	--bg: #0f1724;
+	--bg-2: #071028;
+	--card: #0b1220;
+	--accent: #4fd1c5;
+	--muted: #9aa4b2;
+	--text: #eef2f7;
+
+	/* layout */
+	--maxw: 1100px;
+	--sidenav-w: 260px;
+	--main-min: 720px;
+
+	/* typography */
+	--font-sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+	}
+
+	* { box-sizing: border-box; }
+
+	/* Page base */
+	html, body {
+	height: 100%;
+	margin: 0;
+	font-family: var(--font-sans);
+	color: var(--text);
+	background: linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	}
+
+	/* Center page and add page padding */
+	body {
+	display: flex;
+	justify-content: center;
+	padding: 32px 12px;
+	}
+
+	/* =========================
+	Layout: grid (sidenav + main)
+	========================= */
+	.site {
+	width: 100%;
+	max-width: var(--maxw);
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: var(--sidenav-w) minmax(var(--main-min), 1fr);
+	gap: 40px;
+	align-items: start;
+	}
+
+	/* Header sits in the main column */
+	header {
+	grid-column: 2;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	margin-bottom: 18px;
+	}
+
+	/* =========================
+	Typography / small helpers
+	========================= */
+	h1 { margin: 0; font-size: 26px; letter-spacing: -0.02em; }
+	.subtitle { color: var(--muted); margin-top: 6px; font-size: 13px; }
+	.muted { color: var(--muted); font-size: 13px; }
+
+	/* Links */
+	a { color: var(--accent); text-decoration: none; }
+	a:hover { text-decoration: underline; }
+
+	/* =========================
+	Card surface / components
+	========================= */
+	.card {
+	background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+	border: 1px solid rgba(255,255,255,0.04);
+	padding: 18px;
+	border-radius: 12px;
+	}
+
+	.hero { display: flex; gap: 12px; align-items: center; }
+	.cta {
+	display: inline-block;
+	background: var(--accent);
+	color: #062027;
+	padding: 8px 12px;
+	border-radius: 8px;
+	text-decoration: none;
+	font-weight: 600;
+	}
+
+	/* Project grid/cards */
+	.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 12px;
+	margin-top: 12px;
+	}
+
+	.proj {
+	padding: 12px;
+	border-radius: 10px;
+	background: rgba(255,255,255,0.01);
+	border: 1px solid rgba(255,255,255,0.03);
+	}
+
+	/* Small inline tag */
+	.tag {
+	background: rgba(255,255,255,0.02);
+	color: var(--muted);
+	padding: 6px 8px;
+	border-radius: 8px;
+	font-size: 12px;
+	margin-right: 6px;
+	}
+
+	/* =========================
+	Side navigation (sitemap)
+	========================= */
+	.sidenav {
+	position: sticky;
+	top: 32px;
+	height: calc(100vh - 64px);
+	overflow: auto;
+	padding: 12px;
+	border-radius: 12px;
+	align-self: start;
+
+	/* subtle visual nudge to the left */
+	transform: translateX(-12px);
+	margin-left: -8px;
+	}
+
+	.sidenav h3 { margin: 0 0 10px 0; font-size: 15px; }
+	.sitemap {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	font-size: 14px;
+	color: var(--muted);
+	}
+
+	.sitemap li { margin: 6px 0; }
+
+	.sitemap a {
+	display: flex;
+	justify-content: space-between;
+	gap: 8px;
+	padding: 8px;
+	border-radius: 8px;
+	color: var(--muted);
+	}
+
+	.sitemap a:hover {
+	background: rgba(79,209,197,0.06);
+	color: var(--accent);
+	}
+
+	.sitemap .sub { padding-left: 12px; font-size: 13px; color: #95a3af; }
+
+	/* =========================
+	Footer
+	========================= */
+	footer { margin-top: 18px; color: var(--muted); font-size: 13px; }
+
+	/* =========================
+		Responsive breakpoints
+	========================= */
+	@media (max-width: 880px) {
+		.site {
+			grid-template-columns: 1fr;
+			padding-bottom: 18px;
+		}
+
+	/* Move sidenav below main on mobile and restore normal flow */
+		.sidenav {
+			order: 2;
+			position: relative;
+			top: auto;
+			height: auto;
+			margin-top: 12px;
+			transform: none;
+			margin-left: 0;
+		}
+
+	header { grid-column: 1; }
+	}
+
+	/* =========================
+		Small utilities
+	========================= */
+	/* inline code style used in repro section */
+		code {
+		background: #071427;
+		padding: 4px 6px;
+		border-radius: 6px;
+		color: #a8d9d4;
+		font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+		font-size: 13px;
+	}
+	</style>
+
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div>
-        <h1>Captain — Data Scientist</h1>
-        <div class="subtitle">Masters in Data Science • ex-ETL Developer • Portfolio test site</div>
-      </div>
-      <div class="card hero" style="max-width:360px;">
-        <div>
-          <strong>Site status</strong>
-          <div style="color:var(--muted); margin-top:6px;">This is a minimal page to verify GitHub Pages deployment.</div>
-        </div>
-        <div style="text-align:right">
-          <a class="cta" href="#projects">Verify</a>
-        </div>
-      </div>
-    </header>
 
-    <main class="card">
-      <section id="projects">
-        <h2 style="margin:0 0 8px 0;">Featured projects</h2>
-        <div class="grid">
-          <div class="proj">
-            <strong>Pipeline to Insight</strong>
-            <div style="color:var(--muted); margin-top:6px; font-size:13px;">ETL → clean warehouse → dashboard</div>
-            <div style="margin-top:10px;"><a href="#">Repo</a> · <a href="#">Demo</a></div>
-          </div>
+	<div class="site">
+    <!-- Portfolio Navigation -->
+    <aside class="card sidenav" aria-label="Site map">
+      <h3>Site map</h3>
+      <ul class="sitemap">
+        <li><a href="#hero">Home <span class="muted">/</span></a></li>
+        <li><a href="#projects">Projects <span class="muted">3 featured</span></a>
+          <ul class="sub">
+            <li><a href="#proj-pipeline">Pipeline to Insight</a></li>
+            <li><a href="#proj-predictive">Predictive Model</a></li>
+            <li><a href="#proj-dashboard">Exploratory Dashboard</a></li>
+          </ul>
+        </li>
+        <li><a href="#experience">Experience <span class="muted">• ETL</span></a></li>
+        <li><a href="#skills">Skills <span class="muted">• Tools</span></a></li>
+        <li><a href="#blog">Blog / Notes <span class="muted">optional</span></a></li>
+        <li><a href="#contact">Contact <span class="muted">• Resume</span></a></li>
+        <li><a href="#repro">Repro & Run <span class="muted">commands</span></a></li>
+        <li><a href="#about">About <span class="muted">• Education</span></a></li>
+      </ul>
+    </aside>
+	
+	<!-- Header Section -->
+	<div class="wrap">
+	<header>
+		<div>
+			<h1>Muhammad Zahriel Bin Ismail Data Scientist</h1>
+			<div class="subtitle">Masters in Data Science • ex-ETL Developer • Portfolio</div>
+		</div>
+		<div class="card hero" style="max-width:360px;">
+			<div>
+				<strong>Projects Page</strong>
+				<div style="color:var(--muted); margin-top:6px;">This is a website view of my Portfolio.</div>
+			</div>
+			<div style="text-align:right">
+				<a class="cta" href="#projects">Projects</a>
+			</div>
+		</div>
+	</header>
 
-          <div class="proj">
-            <strong>Predictive model</strong>
-            <div style="color:var(--muted); margin-top:6px; font-size:13px;">End‑to‑end model with evaluation and deployment</div>
-            <div style="margin-top:10px;"><a href="#">Repo</a> · <a href="#">Notebook</a></div>
-          </div>
+    <!-- Feature Projects -->
+	<main class="card">
+		<section id="projects">
+			<h2 style="margin:0 0 8px 0;">Featured projects</h2>
+			<div class="grid">
+				<div class="proj">
+					<strong>Pipeline to Insight</strong>
+					<div style="color:var(--muted); margin-top:6px; font-size:13px;">ETL → clean warehouse → dashboard</div>
+					<div style="margin-top:10px;"><a href="#">Repo</a> · <a href="#">Demo</a></div>
+				</div>
 
-          <div class="proj">
-            <strong>Exploratory dashboard</strong>
-            <div style="color:var(--muted); margin-top:6px; font-size:13px;">Interactive charts for business decisions</div>
-            <div style="margin-top:10px;"><a href="#">Repo</a> · <a href="#">Demo</a></div>
-          </div>
-        </div>
-      </section>
+				<div class="proj">
+					<strong>Predictive model</strong>
+					<div style="color:var(--muted); margin-top:6px; font-size:13px;">End‑to‑end model with evaluation and deployment</div>
+					<div style="margin-top:10px;"><a href="#">Repo</a> · <a href="#">Notebook</a></div>
+				</div>
 
-      <section style="margin-top:18px;">
-        <h3 style="margin:0 0 8px 0;">Contact</h3>
-        <div style="color:var(--muted); font-size:13px;">Email: <a href="mailto:you@example.com">you@example.com</a> · GitHub: <a href="https://github.com/yourusername">yourusername</a></div>
-      </section>
+				<div class="proj">
+					<strong>Exploratory dashboard</strong>
+					<div style="color:var(--muted); margin-top:6px; font-size:13px;">Interactive charts for business decisions</div>
+					<div style="margin-top:10px;"><a href="#">Repo</a> · <a href="#">Demo</a></div>
+				</div>
+			</div>
+		</section>
 
-      <footer>
-        If you can see this page at https://yourusername.github.io then GitHub Pages is working.
-      </footer>
-    </main>
-  </div>
+		<!-- Portfolio Navigation -->
+		<footer>
+			<section style="margin-top:18px;">
+				<h3 style="margin:0 0 8px 0;">Contact</h3>
+				<div style="color:var(--muted); font-size:13px;">Email: <a href="mailto:zismail97.work@gmail.com">zismail97.work@gmail.com</a> · GitHub: <a href="https://github.com/ZahrielIsmail">ZahrielIsmail</a></div>
+			</section>
+		</footer>
+	</main>
+	</div>
 </body>
 </html>
