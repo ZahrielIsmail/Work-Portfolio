@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Captain — Data Science Portfolio</title>
+  <title>Data Science Portfolio</title>
 	<style>
 	/* =========================
 	Variables / Base
@@ -220,20 +220,8 @@
     <aside class="card sidenav" aria-label="Site map">
       <h3>Site map</h3>
       <ul class="sitemap">
-        <li><a href="#hero">Home <span class="muted">/</span></a></li>
-        <li><a href="#projects">Projects <span class="muted">3 featured</span></a>
-          <ul class="sub">
-            <li><a href="#proj-pipeline">Pipeline to Insight</a></li>
-            <li><a href="#proj-predictive">Predictive Model</a></li>
-            <li><a href="#proj-dashboard">Exploratory Dashboard</a></li>
-          </ul>
-        </li>
-        <li><a href="#experience">Experience <span class="muted">• ETL</span></a></li>
-        <li><a href="#skills">Skills <span class="muted">• Tools</span></a></li>
-        <li><a href="#blog">Blog / Notes <span class="muted">optional</span></a></li>
-        <li><a href="#contact">Contact <span class="muted">• Resume</span></a></li>
-        <li><a href="#repro">Repro & Run <span class="muted">commands</span></a></li>
-        <li><a href="#about">About <span class="muted">• Education</span></a></li>
+        <li><a href="index.html">Home </a></li>
+        <li><a href="#about">About</a></li>
       </ul>
     </aside>
 	
@@ -242,45 +230,48 @@
 	<header>
 		<div>
 			<h1>Muhammad Zahriel Bin Ismail Data Scientist</h1>
-			<div class="subtitle">Masters in Data Science • ex-ETL Developer • Portfolio</div>
+			<div class="subtitle">Masters in Data Science • Data Scientist • ETL Developer</div>
 		</div>
-		<div class="card hero" style="max-width:360px;">
-			<div>
-				<strong>Projects Page</strong>
-				<div style="color:var(--muted); margin-top:6px;">This is a website view of my Portfolio.</div>
-			</div>
-			<div style="text-align:right">
-				<a class="cta" href="#projects">Projects</a>
-			</div>
-		</div>
+
 	</header>
 
-    <!-- Feature Projects -->
+    <!-- Featured Projects -->
 	<main class="card">
 		<section id="projects">
-			<h2 style="margin:0 0 8px 0;">Featured projects</h2>
-			<div class="grid">
-				<div class="proj">
-					<strong>Pipeline to Insight</strong>
-					<div style="color:var(--muted); margin-top:6px; font-size:13px;">ETL → clean warehouse → dashboard</div>
-					<div style="margin-top:10px;"><a href="#">Repo</a> · <a href="#">Demo</a></div>
-				</div>
-
-				<div class="proj">
-					<strong>Predictive model</strong>
-					<div style="color:var(--muted); margin-top:6px; font-size:13px;">End‑to‑end model with evaluation and deployment</div>
-					<div style="margin-top:10px;"><a href="#">Repo</a> · <a href="#">Notebook</a></div>
-				</div>
-
-				<div class="proj">
-					<strong>Exploratory dashboard</strong>
-					<div style="color:var(--muted); margin-top:6px; font-size:13px;">Interactive charts for business decisions</div>
-					<div style="margin-top:10px;"><a href="#">Repo</a> · <a href="#">Demo</a></div>
-				</div>
-			</div>
+		  <h2 style="margin:0 0 8px 0;">Latest Projects</h2>
+		  <div class="grid" id="project-grid"></div>
 		</section>
+		<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+		<script>
+		fetch('Projects.csv')
+		  .then(response => response.text())
+		  .then(csv => {
+			const data = Papa.parse(csv, { header: true }).data;
 
-		<!-- Portfolio Navigation -->
+			// Sort by date descending
+			const sorted = data
+			  .filter(p => p.date)
+			  .sort((a, b) => new Date(b.date) - new Date(a.date))
+			  .slice(0, 3);
+
+			const grid = document.getElementById('project-grid');
+			sorted.forEach(project => {
+			  const div = document.createElement('div');
+			  div.className = 'proj';
+			  div.innerHTML = `
+				<strong>${project.title}</strong>
+				<div style="color:var(--muted); margin-top:6px; font-size:13px;">${project.description}</div>
+				<div style="margin-top:10px;">
+				  <a href="viewer.html?file=${project.Report}">Report</a> •
+				  <a href="${project.Repository}">Repository</a>
+				</div>
+			  `;
+			  grid.appendChild(div);
+			});
+		  });
+		</script>
+		
+		<!-- Portfolio Footer -->
 		<footer>
 			<section style="margin-top:18px;">
 				<h3 style="margin:0 0 8px 0;">Contact</h3>
