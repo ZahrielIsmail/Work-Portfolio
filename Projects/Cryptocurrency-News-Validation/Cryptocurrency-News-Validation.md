@@ -22,7 +22,7 @@ This project is an end-to-end pipeline designed to conduct sentiment analysis on
 
 This project utilized the OSEMN methodology to split the pipeline into 5 key phases. The pipeline is as follows:
 
-![Placeholder](Image_1.png)
+![Placeholder](Projects/Cryptocurrency-News-Validation/Image_1.png)
 
 Sentiment Analysis models include using both VaDer and FinBert to conduct a comparison on the performance of the models on cryptocurrency related text.
 
