@@ -56,7 +56,7 @@ Distribution of Demographics:
 
 The following are the PCA Results for the project
 
-![Placeholder](/Projects/WQD7001_Group_5/Image_8.jpg)
+![Placeholder](Projects/WQD7001_Group_5/Image_8.jpg)
 
 ---
 
