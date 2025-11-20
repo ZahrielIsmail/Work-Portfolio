@@ -20,7 +20,7 @@ This project's goal is to analyze a dataset from Kaggle and to train a model to 
 ## Data Quality Assessment
 
 The following are the features in the dataset:
-![Placeholder](Projects/WQD7001_Group_5/Image_1.png)
+![Placeholder](Projects/WQD7001_Group_5/Image_1.jpg)
 
 Identify columns with missing data using R:
 
