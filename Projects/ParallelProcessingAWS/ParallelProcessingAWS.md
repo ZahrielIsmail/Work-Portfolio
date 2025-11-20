@@ -76,6 +76,7 @@ The following script was setup to push all new files to github from the EC2 Inst
 
 ![Placeholder](Projects/ParallelProcessingAWS/Image_5.jpg)
 
+
 ## Sample Outputs
 
 Several different models were used to predict the sentiments of a given tweet the following are some sample outputs of the models from the EC2 Instances:

@@ -42,6 +42,7 @@ Scrubbing activities include removing unwanted data from the scrapped dataset (A
 
 Data Pre-removal:
 
+
 ![Placeholder](Projects/Cryptocurrency-News-Validation/Image_2.png)
 
 Data Post-removal:
