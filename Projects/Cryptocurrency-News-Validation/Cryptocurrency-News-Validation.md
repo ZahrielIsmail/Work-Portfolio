@@ -22,7 +22,7 @@ This project is an end-to-end pipeline designed to conduct sentiment analysis on
 
 This project utilized the OSEMN methodology to split the pipeline into 5 key phases. The pipeline is as follows:
 
-![Placeholder](./Projects/Cryptocurrency-News-Validation/Image_1.png)
+![Placeholder](Projects/Cryptocurrency-News-Validation/Image_1.png)
 
 Sentiment Analysis models include using both VaDer and FinBert to conduct a comparison on the performance of the models on cryptocurrency related text.
 
@@ -42,11 +42,11 @@ Scrubbing activities include removing unwanted data from the scrapped dataset (A
 
 Data Pre-removal:
 
-![Placeholder](./Projects/Cryptocurrency-News-Validation/Image_2.png)
+![Placeholder](Projects/Cryptocurrency-News-Validation/Image_2.png)
 
 Data Post-removal:
 
-![Placeholder](./Projects/Cryptocurrency-News-Validation/Image_3.png)
+![Placeholder](Projects/Cryptocurrency-News-Validation/Image_3.png)
 
 Other Scrubbing activites include the following:
 - Text cleaning from all three levels of the article (‘Header’, ’SubHeader’, ’Content’). 
@@ -61,29 +61,29 @@ The following are several plots conducted to explore the patterns in the data.
 
 Distribution of sentiment score across both sentiment models:
 
-![Placeholder](./Projects/Cryptocurrency-News-Validation/Image_4.png)
+![Placeholder](Projects/Cryptocurrency-News-Validation/Image_4.png)
 
 Comparison of price movements by Cryptocurrency:
 
-![Placeholder](./Projects/Cryptocurrency-News-Validation/Image_5.png)
+![Placeholder](Projects/Cryptocurrency-News-Validation/Image_5.png)
 
 Movement by Trade Volume Comparison:
 
-![Placeholder](./Projects/Cryptocurrency-News-Validation/Image_6.png)
+![Placeholder](Projects/Cryptocurrency-News-Validation/Image_6.png)
 
 - **Data Models (Modelling)**
 
 Due to the target column being a continuous integer value, regressive modelling was chosen to handle the predictions. The following table shows the different models trained on this data:
 
-![Placeholder](./Projects/Cryptocurrency-News-Validation/Image_7.png)
+![Placeholder](Projects/Cryptocurrency-News-Validation/Image_7.png)
 
 Tuning parameters accross the several different models was handled via RandomizedSearchCV to identify best parameters. The following is the grid used for every model parameter:
 
-![Placeholder](./Projects/Cryptocurrency-News-Validation/Image_8.png)
+![Placeholder](Projects/Cryptocurrency-News-Validation/Image_8.png)
 
 The following are a sample output of the performance metrics tracked for these models:
 
-![Placeholder](./Projects/Cryptocurrency-News-Validation/Image_9.png)
+![Placeholder](Projects/Cryptocurrency-News-Validation/Image_9.png)
 ---
 
 ## Outcome
