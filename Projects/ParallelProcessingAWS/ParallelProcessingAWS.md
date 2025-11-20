@@ -21,7 +21,7 @@ This project is an end-to-end pipeline designed to create a HTCondor Cluster bui
 
 Proposed Pipeline:
 
-![Placeholder](/Projects/ParallelProcessingAWS/Image_1.jpg)
+![Placeholder](Projects/ParallelProcessingAWS/Image_1.jpg)
 
 The phases are as follows:
 
@@ -54,7 +54,7 @@ RDS Server
 
 The central managers role in the cluster is to manage the system resources as well as assigning jobs according to free execution hosts, the overall memory needed in this role is low, which provides a reason for the small memory size allocated to the instance. After the Central Manager node is created, it can be accessed via the EC2 terminal to initiate the setup phase. The following code is required to install HTCondor and set the role as central manager:
 
-![Placeholder](/Projects/ParallelProcessingAWS/Image_2.jpg)
+![Placeholder](Projects/ParallelProcessingAWS/Image_2.jpg)
 
 ## Submission Host
 
@@ -62,31 +62,31 @@ The submission host will create the job request to be submitted to the execution
 
 The following code is used to setup the submission host:
 
-![Placeholder](/Projects/ParallelProcessingAWS/Image_3.jpg)
+![Placeholder](Projects/ParallelProcessingAWS/Image_3.jpg)
 
 ## Execution Host
 
 The execution host are the workers of the cluster and will do the bulk of the processes. It requires the Central Managers IP to connect to the cluster. HTCondor
 
-![Placeholder](/Projects/ParallelProcessingAWS/Image_4.jpg)
+![Placeholder](Projects/ParallelProcessingAWS/Image_4.jpg)
 
 ## Minor Scripts
 
 The following script was setup to push all new files to github from the EC2 Instance:
 
-![Placeholder](/Projects/ParallelProcessingAWS/Image_5.jpg)
+![Placeholder](Projects/ParallelProcessingAWS/Image_5.jpg)
 
 ## Sample Outputs
 
 Several different models were used to predict the sentiments of a given tweet the following are some sample outputs of the models from the EC2 Instances:
 
-![Placeholder](/Projects/ParallelProcessingAWS/Image_6.png)
+![Placeholder](Projects/ParallelProcessingAWS/Image_6.png)
 
-![Placeholder](/Projects/ParallelProcessingAWS/Image_7.png)
+![Placeholder](Projects/ParallelProcessingAWS/Image_7.png)
 
 A word cloud was also created to identify the distribution of words in positive sentiment tweets.
 
-![Placeholder](/Projects/ParallelProcessingAWS/Image_8.png)
+![Placeholder](Projects/ParallelProcessingAWS/Image_8.png)
 
 ## Outcome
 

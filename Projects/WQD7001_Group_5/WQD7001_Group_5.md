@@ -21,23 +21,23 @@ This project's goal is to analyze a dataset from Kaggle and to train a model to 
 
 The following are the features in the dataset:
 
-![Placeholder](/Projects/WQD7001_Group_5/Image_1.jpg)
+![Placeholder](Projects/WQD7001_Group_5/Image_1.jpg)
 
 Identify columns with missing data using R:
 
-![Placeholder](/Projects/WQD7001_Group_5/Image_2.jpg)
+![Placeholder](Projects/WQD7001_Group_5/Image_2.jpg)
 
-![Placeholder](/Projects/WQD7001_Group_5/Image_3.jpg)
+![Placeholder](Projects/WQD7001_Group_5/Image_3.jpg)
 
 Identify outliers using R:
 
-![Placeholder](/Projects/WQD7001_Group_5/Image_4.jpg)
+![Placeholder](Projects/WQD7001_Group_5/Image_4.jpg)
 
 Data Binning using R:
 
 The following are the bins created for the columns to group data to make it easier to train models.
 
-![Placeholder](/Projects/WQD7001_Group_5/Image_5.jpg)
+![Placeholder](Projects/WQD7001_Group_5/Image_5.jpg)
 ---
 
 ## EDA
@@ -45,10 +45,10 @@ The following are the bins created for the columns to group data to make it easi
 The following are some sample EDA Plots from the project:
 
 Distribution of satisfaction:
-![Placeholder](/Projects/WQD7001_Group_5/Image_6.jpg)
+![Placeholder](Projects/WQD7001_Group_5/Image_6.jpg)
 
 Distribution of Demographics:
-![Placeholder](/Projects/WQD7001_Group_5/Image_7.jpg)
+![Placeholder](Projects/WQD7001_Group_5/Image_7.jpg)
 
 ---
 
